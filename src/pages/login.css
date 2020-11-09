@@ -1,0 +1,82 @@
+.loginPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.loginForm {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  overflow: auto;
+  padding: 50px;
+}
+
+.loginForm > * {
+  display: block;
+  margin: 10px auto;
+}
+
+.loginForm h3 {
+  font-weight: bold;
+  font-size: 40px;
+  margin: 0;
+}
+
+.loginForm input {
+  width: 330px;
+}
+
+input {
+  background: rgba(34, 34, 34, 0.9);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  caret-color: #9c9c9c;
+
+  transition: 200ms box-shadow;
+}
+
+input:focus {
+  box-shadow: 0px 0px 0px 3px var(--primary);
+}
+
+::placeholder {
+  color: #9c9c9c;
+}
+
+.loginFormHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  color: var(--primary);
+}
+
+.signUp {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+button {
+  background-color: var(--primary);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+
+  transition: 200ms all;
+}
+button:hover {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
