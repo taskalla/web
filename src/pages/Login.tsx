@@ -4,6 +4,8 @@ import "./login.css";
 
 import { LogIn } from "react-feather";
 
+import { Link } from "react-router-dom";
+
 function Login() {
   return (
     <div
@@ -31,7 +33,7 @@ function Login() {
         <input type="password" placeholder="Password" />
         <button>Sign In</button>
         <div className="signUp">
-          No account yet? <a href="#">Sign up!</a>
+          No account yet? <Link to="/signup">Sign up!</Link>
         </div>
       </form>
     </div>
