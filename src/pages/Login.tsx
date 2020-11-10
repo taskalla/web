@@ -5,6 +5,7 @@ import "./login.css";
 import { LogIn } from "react-feather";
 
 import { Link } from "react-router-dom";
+import { Button } from "@theme-ui/components";
 
 function Login() {
   return (
@@ -31,7 +32,7 @@ function Login() {
         </div>
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Password" />
-        <button>Sign In</button>
+        <Button>Sign In</Button>
         <div className="signUp">
           No account yet? <Link to="/signup">Sign up!</Link>
         </div>
