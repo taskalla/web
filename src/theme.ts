@@ -1,4 +1,3 @@
-import { ThemeProvider } from "theme-ui";
 import { Theme } from "theme-ui";
 
 const theme: Theme = {
@@ -23,22 +22,46 @@ const theme: Theme = {
       fontSize: "18px",
       letterSpacing: "0.1em",
       padding: "10px 20px",
-      transition: "200ms all",
+      transition: "400ms all",
+    },
+  },
+  forms: {
+    input: {
+      background: "rgba(34, 34, 34, 0.8)",
+      border: "none",
+      borderRadius: "5px",
+      padding: "10px",
+      fontSize: "18px",
+      color: "text",
+      caretColor: "#9c9c9c",
     },
   },
 };
 
 export default theme;
 
-// background-color: var(--primary);
-//   border-radius: 5px;
+// input {
+//   background: rgba(34, 34, 34, 0.9);
 //   border: none;
-//   color: white;
-//   font-weight: bold;
-//   cursor: pointer;
+//   border-radius: 5px;
+//   padding: 10px;
 //   font-size: 18px;
-//   letter-spacing: 0.1em;
-//   text-transform: uppercase;
-//   padding: 10px 20px;
+//   color: white;
+//   caret-color: #9c9c9c;
 
-//   transition: 200ms all;
+//   transition: 200ms box-shadow;
+// }
+
+// input:focus {
+//   box-shadow: 0px 0px 0px 3px var(--primary);
+//   outline: none;
+// }
+
+// input:invalid:not(:focus) {
+//   outline: none;
+//   box-shadow: 0px 0px 0px 3px rgb(255, 50, 50);
+// }
+
+// ::placeholder {
+//   color: #9c9c9c;
+// }

@@ -6,46 +6,38 @@
 }
 .loginForm {
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  /* background-color: rgba(0, 0, 0, 0.5); */
   border-radius: 20px;
-  overflow: auto;
+  /* overflow: auto; */
   padding: 50px;
+  background: inherit;
+}
+
+.loginForm::before {
+  content: "";
+  background: inherit;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  right: -20px;
+  bottom: -20px;
+  filter: blur(10px) brightness(0.8);
+  z-index: 0;
 }
 
 .loginForm > * {
   display: block;
   margin: 10px auto;
+  position: relative;
+  z-index: 1;
 }
 
 .loginForm h3 {
   font-weight: bold;
   font-size: 40px;
   margin: 0;
-}
-
-.loginForm input {
-  width: 330px;
-}
-
-input {
-  background: rgba(34, 34, 34, 0.9);
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
-  color: white;
-  caret-color: #9c9c9c;
-
-  transition: 200ms box-shadow;
-}
-
-input:focus {
-  box-shadow: 0px 0px 0px 3px var(--primary);
-  outline: none;
-}
-
-::placeholder {
-  color: #9c9c9c;
 }
 
 .loginFormHeader {
@@ -62,4 +54,10 @@ a {
 .signUp {
   font-weight: bold;
   font-size: 18px;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
