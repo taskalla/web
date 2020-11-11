@@ -30,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format:check": "prettier --check ."
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.6",
-    "@types/theme-ui__components": "^0.2.6"
+    "@types/theme-ui__components": "^0.2.6",
+    "prettier": "^2.1.2"
   }
 }
