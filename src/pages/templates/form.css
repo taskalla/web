@@ -1,0 +1,66 @@
+.loginPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.loginForm {
+  display: inline-block;
+  position: relative;
+  overflow-x: hidden;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  border-radius: 20px;
+  /* overflow: auto; */
+  padding: 50px;
+  background: inherit;
+
+  width: 100%;
+  max-width: 450px;
+
+  max-height: 400px;
+}
+
+.loginForm::before {
+  content: "";
+  background: inherit;
+  position: absolute;
+  /* left: -20px;
+  top: -20px;
+  right: -20px;
+  bottom: -20px; */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(10px) brightness(0.8);
+  z-index: 0;
+
+  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.loginForm > * {
+  display: block;
+  margin: 10px auto !important;
+  position: relative;
+  z-index: 1;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.formHeader h3 {
+  font-weight: bold;
+  font-size: 40px;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.formHeader {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
