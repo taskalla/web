@@ -34,6 +34,14 @@ const theme: Theme = {
       fontSize: "18px",
       color: "text",
       caretColor: "#9c9c9c",
+      transition: "200ms box-shadow",
+      "&:focus": {
+        boxShadow: "0px 0px 0px 3px var(--primary)",
+        outline: "none",
+      },
+      "&::placeholder": {
+        color: "#9c9c9c",
+      },
     },
   },
 };

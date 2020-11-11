@@ -13,6 +13,9 @@
   /* overflow: auto; */
   padding: 50px;
   background: inherit;
+
+  width: 100%;
+  max-width: 450px;
 }
 
 .loginForm::before {
@@ -29,7 +32,7 @@
 
 .loginForm > * {
   display: block;
-  margin: 10px auto;
+  margin: 10px auto !important;
   position: relative;
   z-index: 1;
 }
@@ -38,6 +41,30 @@
   font-weight: bold;
   font-size: 40px;
   margin: 0;
+}
+
+.loginFormLoading {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 100ms all;
+}
+
+.loginFormLoading.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .loginFormHeader {
