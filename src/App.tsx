@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 
 import {
   BrowserRouter as Router,
@@ -11,6 +10,7 @@ import Login from "./pages/login";
 import SignUp from "./pages/signup";
 import Index from "./pages/index";
 import GraphQL from "./pages/graphql";
+import AppPage from "./pages/app";
 
 function App() {
   return (
@@ -25,6 +25,9 @@ function App() {
           </Route>
           <Route path="/signup" exact>
             <SignUp />
+          </Route>
+          <Route path="/app">
+            <AppPage />
           </Route>
           <Route path="/graphql" exact>
             <GraphQL />

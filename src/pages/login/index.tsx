@@ -4,19 +4,23 @@ import "./login.css";
 
 import { LogIn } from "react-feather";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button, Input } from "@theme-ui/components";
 
 import { useForm } from "react-hook-form";
 
 import { gql, useMutation } from "@apollo/client";
 import FormTemplate from "../templates/form";
+import useToken from "../../lib/useToken";
 
 function Login() {
-  const [signIn, { error: loginInError }] = useMutation(gql`
+  const [token, setToken] = useToken();
+  const history = useHistory();
+
+  const [signIn, { error: loginError }] = useMutation(gql`
     mutation signIn($email: String!, $password: String!) {
       token: createTokenByPassword(
-        input: { email: $email, password: $password }
+        input: { email: $email, password: $password, client_type: web }
       ) {
         token
         user {
@@ -43,7 +47,8 @@ function Login() {
           password,
         },
       });
-      alert(resp.data.token.token);
+      setToken(resp.data.token.token);
+      history.push("/app");
     } catch (e) {}
   });
 
@@ -53,6 +58,7 @@ function Login() {
         <LogIn size={32} />
         <h3>Welcome</h3>
       </div>
+      {loginError && <div className="error">Something went wrong.</div>}
       <Input
         name="email"
         type="email"
@@ -67,11 +73,10 @@ function Login() {
         ref={register}
       />
       <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Signing In..." : "Sign In"}
+        Sign In
       </Button>
       <div className="signUp">
         No account yet? <Link to="/signup">Sign up!</Link>
-        {loginInError && "error"}
       </div>
     </FormTemplate>
   );

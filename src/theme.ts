@@ -6,7 +6,7 @@ const theme: Theme = {
     heading: "Jost, sans-serif",
   },
   colors: {
-    text: "#fff",
+    text: "#ddd",
     background: "#000",
     primary: "#28afb0",
   },
@@ -23,6 +23,12 @@ const theme: Theme = {
       letterSpacing: "0.1em",
       padding: "10px 20px",
       transition: "400ms all",
+      "&:disabled": {
+        opacity: 0.5,
+      },
+      "&:focus": {
+        outline: "none",
+      },
     },
   },
   forms: {
@@ -42,6 +48,13 @@ const theme: Theme = {
       "&::placeholder": {
         color: "#9c9c9c",
       },
+    },
+  },
+  styles: {
+    root: {
+      color: "text",
+      backgroundColor: "background",
+      textAlign: "center",
     },
   },
 };
