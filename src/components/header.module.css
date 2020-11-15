@@ -1,3 +1,13 @@
 .header {
   background-color: #222;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.signInOut {
+  margin-left: auto !important;
+  display: block;
+  padding: 10px 20px !important;
 }

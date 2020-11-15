@@ -1,16 +1,15 @@
 import { useQuery, gql } from "@apollo/client";
 import React from "react";
 import HeaderTemplate from "../templates/header";
+import Item from "./components/item";
 
 export default function AppPage() {
   const { loading, error, data } = useQuery(gql`
     {
       viewer {
         items(first: 10) {
-          edges {
-            node {
-              description
-            }
+          nodes {
+            description
           }
         }
       }
@@ -32,7 +31,13 @@ export default function AppPage() {
 
   return (
     <HeaderTemplate>
-      <div>{JSON.stringify(data.viewer.items.edges)}</div>
+      <div>
+        {data.viewer.items.nodes.map(
+          ({ description }: { description: string }) => (
+            <Item description={description} />
+          )
+        )}
+      </div>
     </HeaderTemplate>
   );
 }
