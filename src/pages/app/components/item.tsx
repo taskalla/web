@@ -1,9 +1,13 @@
 import React, { FunctionComponent } from "react";
 import { Card } from "theme-ui";
 
-const Item: FunctionComponent<{ description: string }> = ({ description }) => {
+const Item: FunctionComponent<{ description: string }> = ({
+  description,
+  ...props
+}) => {
   return (
     <Card
+      {...props}
       sx={{
         backgroundColor: "#222",
         padding: "20px",

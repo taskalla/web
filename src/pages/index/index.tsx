@@ -1,5 +1,6 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import { Button } from "theme-ui";
 import useToken from "../../lib/useToken";
 
 export default function Index() {
@@ -9,5 +10,11 @@ export default function Index() {
     return <Redirect to="/app" />;
   }
 
-  return <div>{"no token"}</div>;
+  return (
+    <div>
+      <Link to="/login">
+        <Button>Sign in</Button>
+      </Link>
+    </div>
+  );
 }

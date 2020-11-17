@@ -11,3 +11,7 @@
   display: block;
   padding: 10px 20px !important;
 }
+
+.avatar {
+  border-radius: 50%;
+}

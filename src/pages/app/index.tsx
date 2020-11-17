@@ -7,8 +7,10 @@ export default function AppPage() {
   const { loading, error, data } = useQuery(gql`
     {
       viewer {
+        id
         items(first: 10) {
           nodes {
+            id
             description
           }
         }
@@ -33,8 +35,8 @@ export default function AppPage() {
     <HeaderTemplate>
       <div>
         {data.viewer.items.nodes.map(
-          ({ description }: { description: string }) => (
-            <Item description={description} />
+          ({ description, id }: { description: string; id: string }) => (
+            <Item key={id} description={description} />
           )
         )}
       </div>

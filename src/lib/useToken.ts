@@ -1,11 +1,16 @@
-import { useState, useEffect } from "react";
+// It's almost like a React hook
+export default function useToken(): [
+  string | null,
+  (token: string | null) => void
+] {
+  return [
+    localStorage.getItem("taskalla-token"),
+    (token: string | null) => {
+      if (!token) {
+        return localStorage.removeItem("taskalla-token");
+      }
 
-export default function useToken(): [string | null, (token: string) => void] {
-  const [value, setValue] = useState(localStorage.getItem("token"));
-
-  useEffect(() => {
-    localStorage.setItem("token", value || "");
-  }, [value]);
-
-  return [value, setValue];
+      localStorage.setItem("taskalla-token", token);
+    },
+  ];
 }

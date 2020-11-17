@@ -14,13 +14,14 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
+import useToken from "./lib/useToken";
 
 const httpLink = createHttpLink({
   uri: process.env.REACT_APP_BACKEND_URL,
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("token");
+  const [token] = useToken();
 
   return {
     headers: {
