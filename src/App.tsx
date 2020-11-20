@@ -9,7 +9,6 @@ import {
 import Login from "./pages/login";
 import SignUp from "./pages/signup";
 import Index from "./pages/index";
-import GraphQL from "./pages/graphql";
 import AppPage from "./pages/app";
 
 function App() {
@@ -28,9 +27,6 @@ function App() {
           </Route>
           <Route path="/app">
             <AppPage />
-          </Route>
-          <Route path="/graphql" exact>
-            <GraphQL />
           </Route>
           <Route path="">
             <Redirect to="/" />

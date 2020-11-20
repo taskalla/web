@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { Card } from "theme-ui";
 
-const Item: FunctionComponent<{ description: string }> = ({
+import { CheckSquare, Square } from "react-feather";
+
+const Item: FunctionComponent<{ description: string; done: boolean }> = ({
   description,
+  done,
   ...props
 }) => {
   return (
@@ -19,6 +22,7 @@ const Item: FunctionComponent<{ description: string }> = ({
       }}
     >
       {description}
+      {done ? <CheckSquare /> : <Square />}
     </Card>
   );
 };

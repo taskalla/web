@@ -12,6 +12,7 @@ export default function AppPage() {
           nodes {
             id
             description
+            done
           }
         }
       }
@@ -35,8 +36,16 @@ export default function AppPage() {
     <HeaderTemplate>
       <div>
         {data.viewer.items.nodes.map(
-          ({ description, id }: { description: string; id: string }) => (
-            <Item key={id} description={description} />
+          ({
+            description,
+            id,
+            done,
+          }: {
+            description: string;
+            id: string;
+            done: boolean;
+          }) => (
+            <Item key={id} description={description} done={done} />
           )
         )}
       </div>

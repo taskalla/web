@@ -23,7 +23,13 @@ const Header: FunctionComponent = () => {
 
   return (
     <div className={header.header}>
-      {data && <img className={header.avatar} src={data.viewer.gravatar} />}
+      {data && (
+        <img
+          className={header.avatar}
+          src={data.viewer.gravatar}
+          title={data.viewer.name}
+        />
+      )}
     </div>
   );
 };
