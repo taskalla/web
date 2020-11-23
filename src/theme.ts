@@ -61,28 +61,3 @@ const theme: Theme = {
 
 export default theme;
 
-// input {
-//   background: rgba(34, 34, 34, 0.9);
-//   border: none;
-//   border-radius: 5px;
-//   padding: 10px;
-//   font-size: 18px;
-//   color: white;
-//   caret-color: #9c9c9c;
-
-//   transition: 200ms box-shadow;
-// }
-
-// input:focus {
-//   box-shadow: 0px 0px 0px 3px var(--primary);
-//   outline: none;
-// }
-
-// input:invalid:not(:focus) {
-//   outline: none;
-//   box-shadow: 0px 0px 0px 3px rgb(255, 50, 50);
-// }
-
-// ::placeholder {
-//   color: #9c9c9c;
-// }
