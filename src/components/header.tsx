@@ -14,7 +14,7 @@ const Header: FunctionComponent = () => {
   const { data } = useQuery(gql`
     {
       viewer {
-        gravatar(size: 64)
+        gravatar(size: 50)
         name
         id
       }

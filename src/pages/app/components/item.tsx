@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Card } from "theme-ui";
 
-import { CheckSquare, Square } from "react-feather";
+import { CheckSquare, MoreVertical, Square } from "react-feather";
 
 const Item: FunctionComponent<{ description: string; done: boolean }> = ({
   description,
@@ -16,13 +16,22 @@ const Item: FunctionComponent<{ description: string; done: boolean }> = ({
         padding: "20px",
         borderRadius: "10px",
         margin: "10px auto",
-        width: "40%",
         textAlign: "left",
         fontSize: "20px",
+        display: "flex",
+        alignItems: "center",
       }}
     >
       {description}
-      {done ? <CheckSquare /> : <Square />}
+      <div
+        style={{
+          marginLeft: "auto",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        {done ? <CheckSquare /> : <Square />} <MoreVertical />
+      </div>
     </Card>
   );
 };

@@ -1,23 +1,33 @@
 import { useQuery, gql } from "@apollo/client";
-import React from "react";
+import React, { useState } from "react";
 import HeaderTemplate from "../templates/header";
 import Item from "./components/item";
+import FilterSwitch from "./components/switch";
 
 export default function AppPage() {
-  const { loading, error, data } = useQuery(gql`
-    {
-      viewer {
-        id
-        items(first: 10) {
-          nodes {
-            id
-            description
-            done
+  const [filter, setFilter] = useState<"todo" | "done">("todo");
+
+  const { loading, error, data } = useQuery(
+    gql`
+      query($done: Boolean!) {
+        viewer {
+          id
+          items(first: 10, filter: { done: $done }) {
+            nodes {
+              id
+              description
+              done
+            }
           }
         }
       }
+    `,
+    {
+      variables: {
+        done: filter == "done",
+      },
     }
-  `);
+  );
 
   if (loading)
     return (
@@ -34,7 +44,8 @@ export default function AppPage() {
 
   return (
     <HeaderTemplate>
-      <div>
+      <div style={{ width: "40%", margin: "0 auto" }}>
+        <FilterSwitch selected={filter} onChange={(e) => setFilter(e)} />
         {data.viewer.items.nodes.map(
           ({
             description,
