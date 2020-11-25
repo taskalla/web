@@ -29,36 +29,31 @@ export default function AppPage() {
     }
   );
 
-  if (loading)
-    return (
-      <HeaderTemplate>
-        <div>Loading</div>
-      </HeaderTemplate>
+  let items: React.ReactElement = <div>Loading</div>;
+
+  if (error) {
+    items = <div>Error</div>;
+  }
+
+  if (data) {
+    items = data.viewer.items.nodes.map(
+      ({
+        description,
+        id,
+        done,
+      }: {
+        description: string;
+        id: string;
+        done: boolean;
+      }) => <Item key={id} description={description} done={done} />
     );
-  if (error)
-    return (
-      <HeaderTemplate>
-        <div>Error</div>
-      </HeaderTemplate>
-    );
+  }
 
   return (
     <HeaderTemplate>
       <div style={{ width: "40%", margin: "0 auto" }}>
         <FilterSwitch selected={filter} onChange={(e) => setFilter(e)} />
-        {data.viewer.items.nodes.map(
-          ({
-            description,
-            id,
-            done,
-          }: {
-            description: string;
-            id: string;
-            done: boolean;
-          }) => (
-            <Item key={id} description={description} done={done} />
-          )
-        )}
+        {items}
       </div>
     </HeaderTemplate>
   );
