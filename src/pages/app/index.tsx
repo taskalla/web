@@ -7,7 +7,7 @@ import FilterSwitch from "./components/switch";
 export default function AppPage() {
   const [filter, setFilter] = useState<"todo" | "done">("todo");
 
-  const { loading, error, data } = useQuery(
+  const { error, data, refetch } = useQuery(
     gql`
       query($done: Boolean!) {
         viewer {
