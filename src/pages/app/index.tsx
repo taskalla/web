@@ -1,4 +1,4 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql, useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import HeaderTemplate from "../templates/header";
 import Item from "./components/item";
@@ -26,8 +26,17 @@ export default function AppPage() {
       variables: {
         done: filter == "done",
       },
-    }
+    },
   );
+
+  const [updateItem] = useMutation(gql`
+    mutation($id: ID!, $done: Boolean!) {
+      updateItem(input: {id: $id, done: $done}) {
+        id
+        done
+      }
+    }
+  `);
 
   let items: React.ReactElement = <div>Loading</div>;
 
@@ -45,7 +54,13 @@ export default function AppPage() {
         description: string;
         id: string;
         done: boolean;
-      }) => <Item key={id} description={description} done={done} />
+      }) =>
+        <Item
+          key={id}
+          description={description}
+          done={done}
+          onCheckboxClick={() => updateItem({ variables: { id, done: !done } })}
+        />,
     );
   }
 
