@@ -26,12 +26,12 @@ export default function AppPage() {
       variables: {
         done: filter == "done",
       },
-    },
+    }
   );
 
   const [updateItem] = useMutation(gql`
     mutation($id: ID!, $done: Boolean!) {
-      updateItem(input: {id: $id, done: $done}) {
+      updateItem(input: { id: $id, done: $done }) {
         id
         done
       }
@@ -54,13 +54,14 @@ export default function AppPage() {
         description: string;
         id: string;
         done: boolean;
-      }) =>
+      }) => (
         <Item
           key={id}
           description={description}
           done={done}
           onCheckboxClick={() => updateItem({ variables: { id, done: !done } })}
-        />,
+        />
+      )
     );
   }
 
