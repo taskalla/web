@@ -3,12 +3,11 @@ import { Card } from "theme-ui";
 
 import { CheckSquare, MoreVertical, Square } from "react-feather";
 
-const Item: FunctionComponent<{ description: string; done: boolean, onCheckboxClick?: () => void }> = ({
-  description,
-  done,
-  onCheckboxClick,
-  ...props
-}) => {
+const Item: FunctionComponent<{
+  description: string;
+  done: boolean;
+  onCheckboxClick?: () => void;
+}> = ({ description, done, onCheckboxClick, ...props }) => {
   const [overflow, setOverflow] = useState(false);
 
   return (
@@ -33,12 +32,27 @@ const Item: FunctionComponent<{ description: string; done: boolean, onCheckboxCl
           alignItems: "center",
         }}
       >
-        <div onClick={() => onCheckboxClick && onCheckboxClick()}>{done ? <CheckSquare /> : <Square />}</div> <div style={{
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          marginLeft: 10,
-        }} onClick={() => setOverflow(!overflow)}><MoreVertical /></div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+          onClick={() => onCheckboxClick && onCheckboxClick()}
+        >
+          {done ? <CheckSquare /> : <Square />}
+        </div>
+        <div
+          style={{
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            marginLeft: 10,
+          }}
+          onClick={() => setOverflow(!overflow)}
+        >
+          <MoreVertical />
+        </div>
       </div>
     </Card>
   );
